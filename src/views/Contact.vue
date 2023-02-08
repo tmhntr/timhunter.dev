@@ -13,19 +13,26 @@ export default {
 			contacts: [
 				{
 					id: 1,
-					name: 'Your Address, Your City, Your Country',
+					name: 'Montreal, Canada',
 					icon: 'map-pin',
 				},
 				{
 					id: 2,
-					name: 'email@domain.com',
+					name: 'thunte27@uwo.ca',
 					icon: 'mail',
 				},
 				{
 					id: 3,
-					name: '555 8888 888',
-					icon: 'phone',
+					name: 'tmhntr',
+					icon: 'linkedin',
 				},
+				{
+					id: 4,
+					name: '@tim__hunter__',
+					icon: 'instagram',
+				},
+
+
 			],
 		};
 	},

@@ -147,7 +147,7 @@ export default {
 				<div class="hidden md:block">
 					<Button
 						title="Hire Me"
-						class="text-md font-general-medium bg-lime-500 hover:bg-lime-600 text-white shadow-sm rounded-md px-5 py-2.5 duration-300"
+						class="text-md font-general-medium bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm rounded-md px-5 py-2.5 duration-300"
 						@click="showModal()"
 						aria-label="Hire Me Button"
 					/>
@@ -174,8 +174,8 @@ export default {
 
 <style scoped>
 #nav a.router-link-exact-active {
-	@apply text-lime-700;
-	@apply dark:text-lime-400;
+	@apply text-emerald-700;
+	@apply dark:text-emerald-400;
 	@apply font-medium;
 }
 </style>
