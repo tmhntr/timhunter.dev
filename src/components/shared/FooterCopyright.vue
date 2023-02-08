@@ -23,7 +23,7 @@ export default {
 			>
 				{{ projectName }}
 			</a>
-			. Developed by
+			. Template developed by
 			<a
 				href="https://stoman.me"
 				target="__blank"
