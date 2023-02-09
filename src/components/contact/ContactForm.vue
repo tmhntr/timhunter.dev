@@ -31,8 +31,8 @@ export default {
 			<p class="font-general-medium text-primary-dark dark:text-primary-light text-2xl mb-8">
 				Contact Form
 			</p>
-			<form ref="form" class="font-general-regular space-y-7" @submit.prevent="sendEmail">
-				<FormInput label="Full Name" inputIdentifier="name" />
+			<form action="#" ref="form" class="font-general-regular space-y-7" @submit.prevent="sendEmail">
+				<FormInput label="Full Name" inputIdentifier="from_name" />
 				<FormInput label="Email" inputIdentifier="email" inputType="email" />
 				<FormInput label="Subject" inputIdentifier="subject" />
 				<FormTextarea label="Message" textareaIdentifier="message" />

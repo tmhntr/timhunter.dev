@@ -3,6 +3,8 @@ import feather from 'feather-icons';
 import Button from './reusable/Button.vue';
 import FormInput from './reusable/FormInput.vue';
 import FormTextarea from './reusable/FormTextarea.vue';
+import emailjs from '@emailjs/browser';
+
 export default {
 	props: ['showModal', 'modal', 'categories'],
 	components: { Button, FormInput, FormTextarea },
@@ -15,7 +17,19 @@ export default {
 	updated() {
 		feather.replace();
 	},
-	methods: {},
+	methods: {
+		sendEmail(showModal) {
+			console.log('Sending email...');
+			emailjs.sendForm(process.env.VUE_APP_EMAILJS_SERVICE_ID, process.env.VUE_APP_EMAILJS_REQ_TEMPLATE_ID, this.$refs.form, process.env.VUE_APP_EMAILJS_PUBLIC_KEY)
+				.then((result) => {
+					console.log('SUCCESS!', result.text);
+					showModal();
+				}, (error) => {
+					console.log('FAILED...', error.text);
+				});
+
+		}
+	},
 };
 </script>
 
@@ -56,10 +70,10 @@ export default {
 								</button>
 							</div>
 							<div class="modal-body p-5 w-full h-full">
-								<form class="max-w-xl m-4 text-left">
+								<form ref="form" @submit.prevent="sendEmail(showModal)" class="max-w-xl m-4 text-left">
 									<FormInput
 										label="Full Name"
-										inputIdentifier="name"
+										inputIdentifier="from_name"
 										class="mb-2"
 									/>
 									<FormInput
