@@ -6,13 +6,10 @@ import FormTextarea from '../reusable/FormTextarea.vue';
 import emailjs from '@emailjs/browser';
 
 
-console.log(process.env);
-
 export default {
 	components: { Button, FormInput, FormTextarea },
 	methods: {
 		sendEmail() {
-			console.log('Sending email...');
 			emailjs.sendForm(process.env.VUE_APP_EMAILJS_SERVICE_ID, process.env.VUE_APP_EMAILJS_TEMPLATE_ID, this.$refs.form, process.env.VUE_APP_EMAILJS_PUBLIC_KEY)
 				.then((result) => {
 					console.log('SUCCESS!', result.text);
