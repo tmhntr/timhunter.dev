@@ -1,34 +1,42 @@
-<script>
-export default {
-	props: ['project'],
-};
+<script setup>
+import { defineProps } from 'vue';
+
+defineProps({
+	project: {
+		required: true,
+	}
+});
+
+
+/* eslint-disable */
+const truncate = (str, n) => {
+  return (str.length > n) ? str.slice(0, n-1) + `…` : str
+}
+
 </script>
 
 <template>
-	<a
-		:href="project.url"
-		class="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark"
+	<div
+		class="cursor-pointer p-2 relative transform hover:scale-110 transition duration-500 ease-in-out group"
 		aria-label="Single Project"
+		@click="$emit('open-modal', project)"
 	>
-		<div>
 			<img
 				:src="project.img"
 				:alt="project.title"
-				class="rounded-t-xl border-none"
+				class="rounded-xl w-full h-full  opacity-30 group-hover:opacity-100 transition duration-500"
 			/>
-		</div>
-		<div class="text-center px-4 py-6">
-			<p
-				class="font-general-semibold text-xl text-ternary-dark dark:text-ternary-light font-semibold mb-2"
-			>
-				{{ project.title }}
-			</p>
-			<span
-				class="font-general-medium text-lg text-ternary-dark dark:text-ternary-light"
-				>{{ project.category }}</span
-			>
-		</div>
-	</a>
-</template>
+			<div class="absolute top-0 left-0 p-8 group-hover:p-4 w-full transition-all duration-500 ease-in-out group-hover:bg-opacity-50 dark:group-hover:bg-opacity-50 group-hover:bg-white dark:group-hover:bg-secondary-dark group-hover:text-sm">
 
-<style lang="scss" scoped></style>
+				<h1
+					class="text-left font-general-bold text-2xl transform group-hover:text-lg transition-all duration-500 ease-in-out text-ternary-dark dark:text-ternary-light font-bold"
+					>
+					{{ truncate(project.title, 46) }}
+				</h1>
+				<p
+					class="transition-all duration-500 ease-in-out text-left text-2xl transform group-hover:text-base text-ternary-dark dark:text-ternary-light"
+					>{{ project.category }}</p
+				>
+			</div>
+	</div>
+</template>
