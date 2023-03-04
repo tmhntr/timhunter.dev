@@ -1,22 +1,22 @@
 <script>
 import AboutMe from '@/components/about/AboutMe';
+import { educations, certifications } from '@/data/about';
 // import AboutCounter from '@/components/about/AboutCounter';
-import AboutBanner from '@/components/about/AboutBanner';
+// import AboutBanner from '@/components/about/AboutBanner';
 // import AboutClients from '@/components/about/AboutClients';
-import AboutCertifications from '../components/about/AboutCertifications';
 import feather from 'feather-icons';
+import AboutList from '../components/about/AboutList.vue';
 
 export default {
 	name: 'About',
 	components: {
-		AboutMe,
-		// AboutCounter,
-		AboutBanner,
-		// AboutClients,
-		AboutCertifications,
-	},
+    AboutMe,
+    // AboutCounter,
+    // AboutClients,
+    AboutList
+},
 	data: () => {
-		return {};
+		return {educations, certifications};
 	},
 	mounted() {
 		feather.replace();
@@ -35,18 +35,9 @@ export default {
 			<AboutMe />
 		</div>
 
-		<!-- About counter -->
-		<!-- <AboutCounter /> -->
-
-		<AboutBanner />
-
-		<!-- About counter -->
-		<!-- <div class="container mx-auto">
-			<AboutClients />
-		</div> -->
-		<div class="container mx-auto">
-			<AboutCertifications />
-		</div>
+	
+		<AboutList title="Education" :data="educations"/>
+		<AboutList title="Certifications" :data="certifications" />
 	</div>
 </template>
 
