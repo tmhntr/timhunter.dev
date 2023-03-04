@@ -4,7 +4,6 @@ export default {
 		return {
 			copyrightDate: new Date().getFullYear(),
 			projectName: 'TIMHUNTER.DEV',
-			author: 'Stoman',
 		};
 	},
 };
@@ -23,13 +22,7 @@ export default {
 			>
 				{{ projectName }}
 			</a>
-			. Template developed by
-			<a
-				href="https://stoman.me"
-				target="__blank"
-				class="font-general-medium text-secondary-dark dark:text-secondary-light uppercase hover:underline hover:text-emerald-600 dark:hover:text-emerald-300 duration-500"
-				>{{ author }}</a
-			>
+			.
 		</div>
 	</div>
 </template>
