@@ -23,6 +23,9 @@ FROM nginx:alpine as production-build
 ## Remove default nginx index page
 RUN rm -rf /usr/share/nginx/html/*
 
+# Copy nginx.conf int sites-enabled as default
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
 # Copy from the stahg 1
 COPY --from=builder /build/dist /usr/share/nginx/html
 
