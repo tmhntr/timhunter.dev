@@ -34,9 +34,9 @@ export default {
 			<button
 				class="font-general-medium sm:hidden block text-left text-md font-medium bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm rounded-sm px-4 py-2 mt-2 duration-500"
 				@click="showModal()"
-				aria-label="Hire Me Button"
+				aria-label="Message Me Button"
 			>
-				Hire Me
+			Message Me
 			</button>
 		</div>
 	</div>

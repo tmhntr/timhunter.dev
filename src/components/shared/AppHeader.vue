@@ -125,10 +125,10 @@ export default {
 				<!-- Hire me button -->
 				<div class="hidden md:block">
 					<Button
-						title="Hire Me"
+						title="Message Me"
 						class="text-md font-general-medium bg-emerald-500 hover:bg-emerald-600 text-white shadow-sm rounded-md px-5 py-2.5 duration-300"
 						@click="showModal()"
-						aria-label="Hire Me Button"
+						aria-label="Message Me Button"
 					/>
 				</div>
 
@@ -146,7 +146,7 @@ export default {
 			:showModal="showModal"
 			:modal="modal"
 			:categories="categories"
-			aria-modal="Hire Me Modal"
+			aria-modal="Message Me Modal"
 		/>
 	</nav>
 </template>
