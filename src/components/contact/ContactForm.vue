@@ -22,25 +22,20 @@ export default {
 </script>
 
 <template>
-	<div class="w-full md:w-1/2">
-		<div
-			class="leading-loose max-w-xl m-4 p-7 bg-secondary-light dark:bg-secondary-dark rounded-xl shadow-xl text-left">
-			<p class="font-general-medium text-primary-dark dark:text-primary-light text-2xl mb-8">
-				Contact Form
-			</p>
-			<form action="#" ref="form" class="font-general-regular space-y-7" @submit.prevent="sendEmail">
-				<FormInput label="Full Name" inputIdentifier="from_name" />
-				<FormInput label="Email" inputIdentifier="email" inputType="email" />
-				<FormInput label="Subject" inputIdentifier="subject" />
-				<FormTextarea label="Message" textareaIdentifier="message" />
+	<div class="max-w-xl mx-4 px-7 pb-7" >
+		<form action="#" ref="form" class="font-general-regular space-y-7" @submit.prevent="sendEmail">
+			<FormInput label="Full Name" inputIdentifier="from_name" />
+			<FormInput label="Email" inputIdentifier="email" inputType="email" />
+			<FormInput label="Subject" inputIdentifier="subject" />
+			<FormTextarea label="Message" textareaIdentifier="message" />
 
-				<div>
-					<Button title="Send Message"
-						class="px-4 py-2.5 text-white tracking-wider bg-emerald-500 hover:bg-emerald-600 focus:ring-1 focus:ring-emerald-900 rounded-lg duration-500"
-						type="submit" aria-label="Send Message" />
-				</div>
-			</form>
-		</div>
+			<div>
+				<Button title="Send Message"
+					class="px-4 py-2.5 text-white tracking-wider bg-emerald-500 hover:bg-emerald-600 focus:ring-1 focus:ring-emerald-900 rounded-lg duration-500"
+					type="submit" aria-label="Send Message" />
+				<slot template="button"></slot>
+			</div>
+		</form>
 	</div>
 </template>
 
