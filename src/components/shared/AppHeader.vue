@@ -4,7 +4,7 @@ import HireMeModal from '../HireMeModal.vue';
 import feather from 'feather-icons';
 import AppHeaderLinks from './AppHeaderLinks.vue';
 import Button from '../reusable/Button.vue';
-
+import { categories } from '../../data/projects';
 export default {
 	components: {
 		ThemeSwitcher,
@@ -17,28 +17,7 @@ export default {
 			isOpen: false,
 			theme: '',
 			modal: false,
-			categories: [
-				{
-					id: 1,
-					value: 'web',
-					name: 'Web Application',
-				},
-				{
-					id: 2,
-					value: 'data-analysis',
-					name: 'Data Analysis',
-				},
-				{
-					id: 3,
-					value: 'ml',
-					name: 'Machine Learning',
-				},
-				{
-					id: 4,
-					value: 'comp-med',
-					name: 'Computational Medicine',
-				},
-			],
+			categories,
 		};
 	},
 

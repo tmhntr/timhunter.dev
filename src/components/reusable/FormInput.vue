@@ -17,6 +17,10 @@ export default {
 			type: String,
 			default: 'text',
 		},
+		required: {
+			type: Boolean,
+			default: true,
+		},
 	},
 };
 </script>
@@ -38,7 +42,7 @@ export default {
 			:type="inputType"
 			v-bind="$attrs"
 			@input="$emit('update:val', $event.target.value)"
-			required
+			:required="required"
 		/>
 	</div>
 </template>

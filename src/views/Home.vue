@@ -10,6 +10,11 @@ export default {
 		ProjectsGrid,
 		Button,
 	},
+	data() {
+		return {
+			limit: 9,
+		};
+	},
 };
 </script>
 
@@ -19,7 +24,7 @@ export default {
 		<AppBanner class="mb-5 sm:mb-8" />
 
 		<!-- Projects -->
-		<ProjectsGrid />
+		<ProjectsGrid :limit="limit" />
 
 		<!-- Load more projects button -->
 		<div class="mt-10 sm:mt-20 flex justify-center">
