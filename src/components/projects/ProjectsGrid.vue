@@ -5,6 +5,12 @@ import ProjectSingle from './ProjectSingle.vue';
 import projects from '../../data/projects';
 
 export default {
+	props: {
+		limit: {
+			type: Number,
+			default: 12,
+		},
+	},
 	components: { ProjectSingle, ProjectsFilter },
 	data: () => {
 		return {
@@ -17,12 +23,15 @@ export default {
 	computed: {
 		// Get the filtered projects
 		filteredProjects() {
+			let projects
 			if (this.selectedCategory) {
-				return this.filterProjectsByCategory();
+				projects =  this.filterProjectsByCategory();
 			} else if (this.searchProject) {
-				return this.filterProjectsBySearch();
+				projects =  this.filterProjectsBySearch();
+			} else {
+				projects = this.projects;
 			}
-			return this.projects;
+			return projects.length > this.limit ? projects.slice(0, this.limit) : projects;
 		},
 	},
 	methods: {
@@ -44,7 +53,8 @@ export default {
 	},
 	mounted() {
 		feather.replace();
-	},
+	}
+
 };
 </script>
 
@@ -127,7 +137,7 @@ export default {
 						aria-label="Name"
 					/>
 				</div>
-				<ProjectsFilter @filter="selectedCategory = $event" />
+				<ProjectsFilter @filter="selectedCategory = $event" select="() => String()" />
 			</div>
 		</div>
 

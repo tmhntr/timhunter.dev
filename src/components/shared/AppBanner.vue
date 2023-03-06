@@ -1,24 +1,46 @@
 <script>
 import feather from 'feather-icons';
+import GetResumeModal from '../GetResumeModal.vue';
 
 export default {
-	name: 'Home',
-	data: () => {
-		return {
-			theme: '',
-		};
-	},
-	created() {
-		this.theme = localStorage.getItem('theme') || 'light';
-	},
-	mounted() {
-		feather.replace();
-		this.theme = localStorage.getItem('theme') || 'light';
-	},
-	updated() {
-		feather.replace();
-	},
-	methods: {},
+    name: "Home",
+    data: () => {
+        return {
+			isOpen: false,
+			modal: false,
+            theme: "",
+        };
+    },
+    created() {
+        this.theme = localStorage.getItem("theme") || "light";
+    },
+    mounted() {
+        feather.replace();
+        this.theme = localStorage.getItem("theme") || "light";
+    },
+    updated() {
+        feather.replace();
+    },
+    methods: {
+        showModal(e) {
+			console.log("showModal")
+			console.log(e?.target)
+            if (this.modal) {
+                // Stop screen scrolling
+                document
+                    .getElementsByTagName("html")[0]
+                    .classList.remove("overflow-y-hidden");
+                this.modal = false;
+            }
+            else {
+                document
+                    .getElementsByTagName("html")[0]
+                    .classList.add("overflow-y-hidden");
+                this.modal = true;
+            }
+        },
+    },
+    components: { GetResumeModal }
 };
 </script>
 
@@ -39,21 +61,24 @@ export default {
 				M.Sc. medical biophysics, data scientist, programmer.
 			</p>
 			<div class="flex justify-center sm:block">
-				<a
-					download="TimothyHunter-Resume.pdf"
-					href="/files/TimothyHunter-Resume.pdf"
+				<div
 					class="flex justify-center items-center w-36 sm:w-48 mt-12 mb-6 sm:mb-0 text-lg border border-emerald-200 dark:border-ternary-dark py-2.5 sm:py-3 shadow-lg rounded-lg bg-emerald-50 focus:ring-1 focus:ring-emerald-900 hover:bg-emerald-500 text-gray-500 hover:text-white duration-500"
-					aria-label="Download Resume"
+					aria-label="Get Resume"
+					@click="showModal"
 				>
 					<i
-						data-feather="arrow-down-circle"
+						data-feather="mail"
 						class="ml-0 sm:ml-1 mr-2 sm:mr-3 w-5 sm:w-6 duration-100"
 					></i>
-					<span
-						class="text-sm sm:text-lg font-general-medium duration-100"
-						>Download CV</span
-					></a
-				>
+					<span class="text-sm sm:text-lg font-general-medium duration-100">
+						Get my resume
+					</span>
+				</div>
+				<GetResumeModal
+					:showModal="showModal"
+					:modal="modal"
+					aria-modal="Get Resume Modal"
+				/>
 			</div>
 		</div>
 

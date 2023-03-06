@@ -1,11 +1,31 @@
 <script setup>
-import { defineProps } from 'vue';
+/* eslint-disable */
+import { defineProps, ref } from 'vue';
+import ProjectModal from './ProjectModal.vue';
 
 defineProps({
 	project: {
 		required: true,
 	}
 });
+
+const modal = ref(false);
+
+const showModal = () => {
+	if (modal.value) {
+		// Stop screen scrolling
+		document
+			.getElementsByTagName("html")[0]
+			.classList.remove("overflow-y-hidden");
+		modal.value = false;
+	}
+	else {
+		document
+			.getElementsByTagName("html")[0]
+			.classList.add("overflow-y-hidden");
+		modal.value = true;
+	}
+}
 
 
 /* eslint-disable */
@@ -19,7 +39,7 @@ const truncate = (str, n) => {
 	<div
 		class="cursor-pointer p-2 relative transform hover:scale-110 transition duration-500 ease-in-out group"
 		aria-label="Single Project"
-		@click="$emit('open-modal', project)"
+		@click="showModal"
 	>
 			<img
 				:src="project.img"
@@ -39,4 +59,5 @@ const truncate = (str, n) => {
 				>
 			</div>
 	</div>
+	<ProjectModal :showModal="showModal" :modal="modal" :project="project" aria-modal="Project Modal" />
 </template>
