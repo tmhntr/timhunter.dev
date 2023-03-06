@@ -55,6 +55,9 @@ export default {
 							<div
 								class="modal-header flex gap-10 p-5 border-b border-ternary-light dark:border-ternary-dark"
 							>
+								<p class="mx-4 my-0 text-center leading-loose font-general-medium text-primary-dark dark:text-primary-light text-2xl">
+									Contact
+								</p>
 								<button
 									class="px-4 ml-auto text-primary-dark dark:text-primary-light"
 									@click="showModal()"

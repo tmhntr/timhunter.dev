@@ -22,10 +22,7 @@ export default {
 </script>
 
 <template>
-	<div class="max-w-xl m-4 p-7" >
-		<p class="leading-loose text-left font-general-medium text-primary-dark dark:text-primary-light text-2xl mb-8">
-			Contact
-		</p>
+	<div class="max-w-xl mx-4 px-7 pb-7" >
 		<form action="#" ref="form" class="font-general-regular space-y-7" @submit.prevent="sendEmail">
 			<FormInput label="Full Name" inputIdentifier="from_name" />
 			<FormInput label="Email" inputIdentifier="email" inputType="email" />
